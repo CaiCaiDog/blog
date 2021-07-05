@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <!-- <link rel="stylesheet" href="static/css/element-plus-1.0.2-beta.53.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/lib/theme-chalk/index.css">
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: unset;
+            color: unset;
+        }
+
+        body {
+            background-image: url('static/img/beautiful.jpg');
+            background-attachment:fixed;
+        }
+
+        .el-main {
+            height: 2500px;
+        }
+
+        .ant-layout-header {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .el-menu {
+            background-color: unset;
+        }
+
+        .el-menu.el-menu--horizontal {
+            border-bottom: none;
+        }
+
+        .el-menu--horizontal>.el-menu-item {
+            color: white;
+        }
+
+        .el-menu--horizontal>.el-menu-item:not(.is-disabled):focus,
+        .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover,
+        .el-menu--horizontal>.el-submenu .el-submenu__title:hover,
+        .el-select-v2__wrapper {
+            background-color: unset;
+        }
+
+        .el-menu-item:not(.is-disabled):hover {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .el-menu-item i {
+            color: white;
+        }
+
+        .el-descriptions__body {
+            border-radius: 5px;
+        }
+
+        .title {
+            padding: 15px 0;
+            font-size: 25px;
+            color: aqua;
+        }
+
+        .content_box>div {
+            font-size: 20px;
+            height: 320px;
+        }
+
+        .content_box {
+            height: 450px;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .content_box>header {
+            height: 250px;
+            width: 100%;
+            background-size: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            position: relative;
+        }
+
+        .content_box>content {
+            padding: 5px 35px;
+            display: -webkit-box;
+            margin-top: 35px;
+            color: rgb(82, 95, 127);
+            line-height: 1.8;
+            text-indent: 2em;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
+
+        .content_box>footer {
+            padding: 5px 35px;
+            margin-top: 35px;
+        }
+
+        .content_box>footer>* {
+            margin: 0 5px;
+            ;
+        }
+
+        .header_content {
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header_title {
+            padding-top: 100px;
+            font-size: 35px;
+            font-family: cursive;
+        }
+
+        .info {
+            margin-top: 10px;
+        }
+
+        .rec_artical .item {
+            margin-bottom: 18px;
+        }
+
+        .header_img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            filter: brightness(.7);
+            transition: .3s;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .content_box>header:hover .header_img {
+            filter: none;
+        }
+
+        .item>a {
+            color: rgb(121, 138, 232);
+        }
+
+        article {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-container>
+            <el-header>
+                <el-row>
+                    <el-col :span="18" justify="center" :offset="3">
+                        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
+                            @select="handleSelect">
+                            <el-menu-item index="1"><img src="static/img/head.png" style="width: 30px;height: 24px;">
+                            </el-menu-item>
+                            <el-menu-item index="1"><i class="el-icon-s-home"
+                                    style="font-size: 13px;"></i><span>首页</span></el-menu-item>
+                            <el-menu-item index="1"><i class="el-icon-sugar"
+                                    style="font-size: 13px;"></i><span>关于</span></el-menu-item>
+                        </el-menu>
+                    </el-col>
+                </el-row>
+            </el-header>
+            <div style="height: 100px;"></div>
+            <el-main>
+                <el-row :gutter="32">
+                    <el-col :span="3" :offset="3">
+                        <el-descriptions class="margin-top info_card" :column="4" direction="vertical"
+                            style="border-radius: 5px;">
+                            <el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
+                            <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
+                            <el-descriptions-item label="居住地" :span="2">苏州市</el-descriptions-item>
+                            <el-descriptions-item label="备注">
+                                <el-tag size="small">学校</el-tag>
+                            </el-descriptions-item>
+                            <el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
+                        </el-descriptions>
+                    </el-col>
+                    <el-col :span="11">
+                        <article class="content_box">
+                            <header>
+                                <img src="static/img/content_back.jpg" alt="" class="header_img">
+                                <div class="header_content">
+                                    <div class="header_title">
+                                        <a href="">个人的第一个博客内容</a>
+                                    </div>
+                                    <div class="info">
+                                        <i class="el-icon-time"></i>&nbsp;<span
+                                            class="create_time">2021-07-02</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-view"></i>&nbsp;<span
+                                            class="pageview">2</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-chat-dot-round"></i>&nbsp;<span
+                                            class="review">3</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-tickets"></i>&nbsp;<span class="pagesize">100</span>
+                                    </div>
+                                </div>
+                            </header>
+                            <content>
+                                <p>个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客
+                                </p>
+                            </content>
+                            <footer class="tag">
+                                <i class="el-icon-discount"></i>
+                                <el-tag>标签一</el-tag>
+                                <el-tag>标签二</el-tag>
+                                <el-tag>标签三</el-tag>
+                                <el-tag>标签四</el-tag>
+                            </footer>
+                        </article>
+                        <article class="content_box">
+                            <header>
+                                <img src="static/img/content_back.jpg" alt="" class="header_img">
+                                <div class="header_content">
+                                    <div class="header_title">
+                                        <a href="">个人的第一个博客内容</a>
+                                    </div>
+                                    <div class="info">
+                                        <i class="el-icon-time"></i>&nbsp;<span
+                                            class="create_time">2021-07-02</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-view"></i>&nbsp;<span
+                                            class="pageview">2</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-chat-dot-round"></i>&nbsp;<span
+                                            class="review">3</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-tickets"></i>&nbsp;<span class="pagesize">100</span>
+                                    </div>
+                                </div>
+                            </header>
+                            <content>
+                                <p>个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客
+                                </p>
+                            </content>
+                            <footer class="tag">
+                                <i class="el-icon-discount"></i>
+                                <el-tag>标签一</el-tag>
+                                <el-tag>标签二</el-tag>
+                                <el-tag>标签三</el-tag>
+                                <el-tag>标签四</el-tag>
+                            </footer>
+                        </article>
+                        <article class="content_box">
+                            <header>
+                                <img src="static/img/content_back.jpg" alt="" class="header_img">
+                                <div class="header_content">
+                                    <div class="header_title">
+                                        <a href="">个人的第一个博客内容</a>
+                                    </div>
+                                    <div class="info">
+                                        <i class="el-icon-time"></i>&nbsp;<span
+                                            class="create_time">2021-07-02</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-view"></i>&nbsp;<span
+                                            class="pageview">2</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-chat-dot-round"></i>&nbsp;<span
+                                            class="review">3</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <i class="el-icon-tickets"></i>&nbsp;<span class="pagesize">100</span>
+                                    </div>
+                                </div>
+                            </header>
+                            <content>
+                                <p>个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客个人博客
+                                </p>
+                            </content>
+                            <footer class="tag">
+                                <i class="el-icon-discount"></i>
+                                <el-tag>标签一</el-tag>
+                                <el-tag>标签二</el-tag>
+                                <el-tag>标签三</el-tag>
+                                <el-tag>标签四</el-tag>
+                            </footer>
+                        </article>
+                    </el-col>
+                    <el-col :span="3">
+                        <el-card class="box-card rec_artical">
+                            <template #header>
+                                <div class="card-header">
+                                    <span>最近文章</span>
+                                </div>
+                            </template>
+                            <div v-for="o in 4" :key="o" class="text item">
+                                <a href="">{{'列表内容 ' + o }}</a>
+                            </div>
+                        </el-card>
+                        <el-card class="box-card rec_artical" style="margin-top: 20px;">
+                            <template #header>
+                                <div class="card-header">
+                                    <span>最多访问</span>
+                                </div>
+                            </template>
+                            <div v-for="o in 4" :key="o" class="text item">
+                                <a href="">{{'列表内容 ' + o }}</a>
+                            </div>
+                        </el-card>
+                    </el-col>
+                </el-row>
+            </el-main>
+            <el-footer>Footer</el-footer>
+        </el-container>
+    </div>
+</body>
+<script src="static/js/vue-3.1.2.js"></script>
+<script src="static/js/element-plus-1.0.2-beta.53.js"></script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            const item = {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            };
+            return {
+                tableData: Array(20).fill(item)
+            }
+        },
+        methods: {
+            handleScroll() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            }
+        },
+        mounted() {
+            window.addEventListener('scroll', this.handleScroll)
+        },
+
+    })
+    app.use(ElementPlus).mount('#app')
+</script>
+
+</html>
